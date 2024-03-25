@@ -67,4 +67,10 @@ CREATE TABLE `d_servicio` (
   CONSTRAINT `id_tipo_servicio_fk` FOREIGN KEY (`id_tipo_servicio`) REFERENCES `d_tipo_servicio` (`id_tipo_servicio`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-show create table d_servicio;
+show create table d_torre;
+
+CREATE TABLE `d_torre` (
+  `id_torre` int(11) NOT NULL AUTO_INCREMENT,
+  `torre` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id_torre`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
