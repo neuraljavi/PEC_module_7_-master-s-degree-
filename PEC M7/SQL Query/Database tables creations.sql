@@ -130,10 +130,16 @@ ALTER TABLE d_estado_sla ADD CONSTRAINT id_estado FOREIGN KEY (id_estado) REFERE
 -- Volver a activar la restricción
 ALTER TABLE f_incidencias ADD CONSTRAINT fk_estado FOREIGN KEY (fk_estado_sla) REFERENCES d_estado_sla (id_estado_sla);
 
+select * from d_estado;
+
+select max(f.fecha_creacion)
+from f_incidencias f;
 
 select * from raw_data;
 
 SET FOREIGN_KEY_CHECKS = 0;
+
+TRUNCATE TABLE raw_data;
 
 TRUNCATE TABLE f_incidencias;
 
@@ -153,4 +159,3 @@ TRUNCATE TABLE d_estado;
 SET FOREIGN_KEY_CHECKS = 1;
 
 select * from f_incidencias;
-

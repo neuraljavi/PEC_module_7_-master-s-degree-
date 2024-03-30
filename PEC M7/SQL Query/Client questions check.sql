@@ -147,4 +147,15 @@ ORDER BY
 
 -- Volumetría de tickets en entornos productivos respecto a entornos no productivos
 
--- Posibilidad de filtrar por prioridad, por tipo de ticket y por servicio
+SELECT
+    CASE 
+        WHEN e.entorno LIKE '%PRO%' THEN 'Entorno Productivo'
+        ELSE 'Entorno No Productivo'
+    END AS Tipo_Entorno,
+    COUNT(*) AS Total_Tickets
+FROM
+    f_incidencias i
+INNER JOIN
+    d_entorno e ON i.fk_entorno = e.id_entorno
+GROUP BY
+    Tipo_Entorno;
